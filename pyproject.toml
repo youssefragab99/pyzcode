@@ -17,6 +17,8 @@ flake8 = "^7.1.1"
 black = "^24.10.0"
 isort = "^5.13.2"
 pre-commit = "^4.0.1"
+coverage = "^7.6.4"
+pytest-cov = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -36,3 +38,7 @@ profile = "black"
 line_length = 79
 multi_line_output = 3
 include_trailing_comma = true
+
+[tool.pytest.ini_options]
+pythonpath = ["./pyzipcode"]
+testpaths = ["tests"]

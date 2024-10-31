@@ -36,46 +36,75 @@ class DataLoader:
         return res
 
     def get_zipcodes_by_state(self, state):
-        return self.data[self.data["state"] == state]
+        res = [x for x in self.data if x["state"].lower() == state.lower()]
+        return res
 
     def get_zipcodes_by_city(self, city):
-        return self.data[self.data["city"] == city]
+        res = [
+            x for x in self.data if x["primary_city"].lower() == city.lower()
+        ]
+        return res
 
     def get_zipcodes_by_state_and_city(self, state, city):
-        return self.data[
-            (self.data["state"] == state) & (self.data["city"] == city)
+        res = [
+            x
+            for x in self.data
+            if x["state"].lower() == state.lower()
+            and x["primary_city"].lower() == city.lower()
         ]
+        return res
 
     def get_zipcodes_by_state_and_type(self, state, type):
-        return self.data[
-            (self.data["state"] == state) & (self.data["type"] == type)
+        res = [
+            x
+            for x in self.data
+            if x["state"].lower() == state.lower()
+            and x["type"].lower() == type.lower()
         ]
+        return res
 
     def get_zipcodes_by_city_and_type(self, city, type):
-        return self.data[
-            (self.data["city"] == city) & (self.data["type"] == type)
+        res = [
+            x
+            for x in self.data
+            if x["primary_city"].lower() == city.lower()
+            and x["type"].lower() == type.lower()
         ]
+        return res
 
     def get_zipcodes_by_state_and_city_and_type(self, state, city, type):
-        return self.data[
-            (self.data["state"] == state)
-            & (self.data["city"] == city)
-            & (self.data["type"] == type)
+        res = [
+            x
+            for x in self.data
+            if x["state"].lower() == state.lower()
+            and x["primary_city"].lower() == city.lower()
+            and x["type"].lower() == type.lower()
         ]
+        return res
 
     def get_zipcodes_by_state_and_city_and_zipcode(self, state, city, zipcode):
-        return self.data[
-            (self.data["state"] == state)
-            & (self.data["city"] == city)
-            & (self.data["zip"] == zipcode)
+        res = [
+            x
+            for x in self.data
+            if x["state"].lower() == state.lower()
+            and x["primary_city"].lower() == city.lower()
+            and x["zip"] == zipcode
         ]
+        return res
 
     def get_zipcodes_by_state_and_zipcode(self, state, zipcode):
-        return self.data[
-            (self.data["state"] == state) & (self.data["zip"] == zipcode)
+        res = [
+            x
+            for x in self.data
+            if x["state"].lower() == state.lower() and x["zip"] == zipcode
         ]
+        return res
 
     def get_zipcodes_by_city_and_zipcode(self, city, zipcode):
-        return self.data[
-            (self.data["city"] == city) & (self.data["zip"] == zipcode)
+        res = [
+            x
+            for x in self.data
+            if x["primary_city"].lower() == city.lower()
+            and x["zip"] == zipcode
         ]
+        return res
