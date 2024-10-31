@@ -9,7 +9,7 @@ from data_loader import DataLoader
 
 
 class ZipCode:
-    def __init__(self, zip_code: dict): 
+    def __init__(self, zip_code: dict):
         self.zip_code = zip_code["zip_code"]
         self.type = zip_code["type"]
         self.primary_city = zip_code["primary_city"]
@@ -24,15 +24,13 @@ class ZipCode:
         self.latitude = zip_code["latitude"]
         self.longitude = zip_code["longitude"]
         self.population = zip_code["irs_estimated_population"]
-        
 
 
 if __name__ == "__main__":
-    
     dl = DataLoader()
-    
+
     test = dl.data[0]
-    
+
     print(dl.get_zipcode("20037"))
-    
+
     print(dl.get_zipcodes("Washington", "DC"))
