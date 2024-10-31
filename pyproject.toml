@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pyzipcode"
+version = "0.1.0"
+description = "Python package to manage zip codes"
+authors = ["Youssef Ragab <77282699+youssefragab99@users.noreply.github.com>"]
+license = "Apache 2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^2.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
