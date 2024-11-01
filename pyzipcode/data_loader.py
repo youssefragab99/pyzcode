@@ -1,5 +1,6 @@
 import pandas as pd
-from exceptions import DataLoadError
+
+from .exceptions import DataLoadError
 
 
 class DataLoader:
