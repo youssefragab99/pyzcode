@@ -1,5 +1,6 @@
 import pytest
-from utils import convert_to_int
+
+from pyzcode.utils import convert_to_int
 
 
 def test_convert_to_int():

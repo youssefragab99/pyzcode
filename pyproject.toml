@@ -1,15 +1,18 @@
 [tool.poetry]
-name = "pyzipcode"
+name = "pyzcode"
 version = "0.1.0"
 description = "Python package to manage zip codes"
 authors = ["Youssef Ragab <77282699+youssefragab99@users.noreply.github.com>"]
 license = "Apache 2.0"
 readme = "README.md"
+packages = [
+    { include = "pyzcode", from = "." },
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.9"
 pandas = "^2.2.3"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
@@ -40,5 +43,5 @@ multi_line_output = 3
 include_trailing_comma = true
 
 [tool.pytest.ini_options]
-pythonpath = ["./pyzipcode"]
+pythonpath = ["./pyzcode"]
 testpaths = ["tests"]

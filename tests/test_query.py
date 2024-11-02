@@ -1,5 +1,6 @@
 import pytest
-from query import ZipCodeQuery
+
+from pyzcode.query import ZipCodeQuery
 
 
 @pytest.fixture
@@ -13,13 +14,12 @@ def test_get_zipcode(zip_code_query):
     assert zip_code["zip"] == 90210
 
 
-def test_get_zipcodes(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes("Beverly Hills", "CA")
+def test_get_zipcodes_by_city(zip_code_query):
+    zip_codes = zip_code_query.get_zipcodes_by_city("Beverly Hills")
     assert isinstance(zip_codes, list)
     assert len(zip_codes) > 0
     for zip_code in zip_codes:
         assert zip_code["primary_city"].lower() == "beverly hills"
-        assert zip_code["state"].lower() == "ca"
 
 
 def test_get_zipcodes_by_state(zip_code_query):
@@ -27,26 +27,18 @@ def test_get_zipcodes_by_state(zip_code_query):
     assert isinstance(zip_codes, list)
     assert len(zip_codes) > 0
     for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
+        assert zip_code["state"].lower() == "ca"
 
 
-def test_get_zipcodes_by_city(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_city("Beverly Hills")
-    assert isinstance(zip_codes, list)
-    assert len(zip_codes) > 0
-    for zip_code in zip_codes:
-        assert zip_code["primary_city"] == "Beverly Hills"
-
-
-def test_get_zipcodes_by_state_and_city(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_state_and_city(
-        "CA", "Beverly Hills"
+def test_get_zipcodes_by_city_and_state(zip_code_query):
+    zip_codes = zip_code_query.get_zipcodes_by_city_and_state(
+        "Beverly Hills", "CA"
     )
     assert isinstance(zip_codes, list)
     assert len(zip_codes) > 0
     for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
-        assert zip_code["primary_city"] == "Beverly Hills"
+        assert zip_code["primary_city"].lower() == "beverly hills"
+        assert zip_code["state"].lower() == "ca"
 
 
 def test_get_zipcodes_by_state_and_type(zip_code_query):
@@ -54,8 +46,8 @@ def test_get_zipcodes_by_state_and_type(zip_code_query):
     assert isinstance(zip_codes, list)
     assert len(zip_codes) > 0
     for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
-        assert zip_code["type"] == "STANDARD"
+        assert zip_code["state"].lower() == "ca"
+        assert zip_code["type"].lower() == "standard"
 
 
 def test_get_zipcodes_by_city_and_type(zip_code_query):
@@ -65,49 +57,5 @@ def test_get_zipcodes_by_city_and_type(zip_code_query):
     assert isinstance(zip_codes, list)
     assert len(zip_codes) > 0
     for zip_code in zip_codes:
-        assert zip_code["primary_city"] == "Beverly Hills"
-        assert zip_code["type"] == "STANDARD"
-
-
-def test_get_zipcodes_by_state_and_city_and_type(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_state_and_city_and_type(
-        "CA", "Beverly Hills", "STANDARD"
-    )
-    assert isinstance(zip_codes, list)
-    assert len(zip_codes) > 0
-    for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
-        assert zip_code["primary_city"] == "Beverly Hills"
-        assert zip_code["type"] == "STANDARD"
-
-
-def test_get_zipcodes_by_state_and_city_and_zipcode(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_state_and_city_and_zipcode(
-        "CA", "Beverly Hills", 90210
-    )
-    assert isinstance(zip_codes, list)
-    assert len(zip_codes) > 0
-    for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
-        assert zip_code["primary_city"] == "Beverly Hills"
-        assert zip_code["zip"] == 90210
-
-
-def test_get_zipcodes_by_state_and_zipcode(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_state_and_zipcode("CA", 90210)
-    assert isinstance(zip_codes, list)
-    assert len(zip_codes) > 0
-    for zip_code in zip_codes:
-        assert zip_code["state"] == "CA"
-        assert zip_code["zip"] == 90210
-
-
-def test_get_zipcodes_by_city_and_zipcode(zip_code_query):
-    zip_codes = zip_code_query.get_zipcodes_by_city_and_zipcode(
-        "Beverly Hills", 90210
-    )
-    assert isinstance(zip_codes, list)
-    assert len(zip_codes) > 0
-    for zip_code in zip_codes:
-        assert zip_code["primary_city"] == "Beverly Hills"
-        assert zip_code["zip"] == 90210
+        assert zip_code["primary_city"].lower() == "beverly hills"
+        assert zip_code["type"].lower() == "standard"

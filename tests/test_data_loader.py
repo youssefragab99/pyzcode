@@ -1,5 +1,6 @@
 import pytest
-from data_loader import DataLoader
+
+from pyzcode.data_loader import DataLoader
 
 
 @pytest.fixture
