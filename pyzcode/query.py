@@ -56,6 +56,8 @@ class ZipCode:
             self.acceptable_cities = data["acceptable_cities"]
             self.unacceptable_cities = data["unacceptable_cities"]
             self.county = data["county"]
+            self.lat = data["latitude"]
+            self.lon = data["longitude"]
             self.timezone = data["timezone"]
             self.area_codes = data["area_codes"]
             self.world_region = data["world_region"]
