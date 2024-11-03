@@ -52,6 +52,7 @@ class ZipCode:
             self.type = data["type"]
             self.decommissioned = data["decommissioned"]
             self.primary_city = data["primary_city"]
+            self.state = data["state"]
             self.acceptable_cities = data["acceptable_cities"]
             self.unacceptable_cities = data["unacceptable_cities"]
             self.county = data["county"]
