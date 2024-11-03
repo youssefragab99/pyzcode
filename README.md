@@ -6,9 +6,7 @@
 
 ## Features
 
-- **Validation**: Ensure that zip codes conform to the standard US formats.
 - **Parsing**: Extract relevant information from zip codes, such as state and city.
-- **Formatting**: Convert zip codes to various formats for display or storage.
 - **Lookup**: Retrieve detailed information about a zip code, including geographic and demographic data.
 
 ## Installation
@@ -22,6 +20,56 @@ pip install pyzcode
 ## Usage
 
 Once installed, you can start using `pyzcode` to handle zip codes in your Python projects. The package is designed to be intuitive and easy to integrate into existing codebases.
+
+ZipCode class:
+
+```python
+from pyzcode import ZipCode
+
+# Create a ZipCode object
+zipcode = ZipCode('90210')
+
+# Get the city and state
+city = zipcode.city
+state = zipcode.state
+
+print(f'The city is {city} and the state is {state}')
+```
+
+ZipCodeQuery class:
+
+```python
+from pyzcode import ZipCodeQuery
+
+# Create a ZipCodeQuery object
+query = ZipCodeQuery()
+
+# Lookup a zip code
+zipcode = query.get_zipcode('90210')
+
+print(zipcode)
+```
+
+### Get Zipcodes by city, state, and type
+
+There are many combinations of get_zipcodes functions where the user can search by city, state, and zip code type.
+
+```python
+from pyzcode import ZipCodeQuery
+
+# Create a ZipCodeQuery object
+query = ZipCodeQuery()
+
+# Get zip codes by city and state
+zipcodes = query.get_zipcodes_by_city_state('Beverly Hills', 'CA')
+
+print(zipcodes)
+
+# Get zip codes by city, state, and type
+zipcodes = query.get_zipcodes_by_city_state_type('Beverly Hills', 'CA', 'Standard')
+
+print(zipcodes)
+```
 
 ## License
 
