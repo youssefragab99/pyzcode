@@ -1,3 +1,5 @@
+import random
+
 from .data_loader import DataLoader
 from .utils import convert_to_int
 
@@ -244,3 +246,44 @@ class ZipCodeQuery:
         """
 
         return self._filter_data(state=state, primary_city=city, type=type_)
+
+    def random(self):
+        """
+        Retrieve a random zip code from the dataset.
+        Returns
+        -------
+        dict
+            A dictionary representing a random zip code.
+        """
+
+        return random.choice(self.data)
+
+    def random_in_state(self, state: str):
+        """
+        Retrieve a random zip code from the dataset for a given state.
+        Parameters
+        ----------
+        state : str
+            The state to filter zip codes by.
+        Returns
+        -------
+        dict
+            A dictionary representing a random zip code in the given state.
+        """
+
+        return random.choice(self._filter_data(state=state))
+
+    def random_in_city(self, city: str):
+        """
+        Retrieve a random zip code from the dataset for a given city.
+        Parameters
+        ----------
+        city : str
+            The city to filter zip codes by.
+        Returns
+        -------
+        dict
+            A dictionary representing a random zip code in the given city.
+        """
+
+        return random.choice(self._filter_data(primary_city=city))

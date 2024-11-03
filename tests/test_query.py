@@ -98,3 +98,23 @@ def test_zip_code_class_initialization():
     assert zip_code.zip.__str__() == "90210"
     assert zip_code.primary_city.lower() == "beverly hills"
     assert zip_code.county.lower() == "los angeles county"
+
+
+def test_random(zip_code_query):
+    zip_code = zip_code_query.random()
+    assert zip_code is not None
+    assert "zip" in zip_code
+    assert "primary_city" in zip_code
+    assert "state" in zip_code
+
+
+def test_random_in_state(zip_code_query):
+    zip_code = zip_code_query.random_in_state("CA")
+    assert zip_code is not None
+    assert zip_code["state"].lower() == "ca"
+
+
+def test_random_in_city(zip_code_query):
+    zip_code = zip_code_query.random_in_city("Beverly Hills")
+    assert zip_code is not None
+    assert zip_code["primary_city"].lower() == "beverly hills"
