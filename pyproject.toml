@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyzcode"
-version = "0.1.0"
+version = "0.2.0"
 description = "Python package to manage zip codes"
 authors = ["Youssef Ragab <77282699+youssefragab99@users.noreply.github.com>"]
 license = "Apache 2.0"
@@ -13,6 +13,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.9"
 pandas = "^2.2.3"
+poetry-bumpversion = "^0.3.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
