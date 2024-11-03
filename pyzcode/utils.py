@@ -1,7 +1,23 @@
-from dataclasses import dataclass
-
-
 def convert_to_int(value):
+    """
+    Convert a given value to an integer.
+    Parameters
+    ----------
+    value : str or int
+        The value to be converted to an integer. If the value is already an
+        integer, it will be returned as is. If the value is a string, it will
+        be stripped of leading and trailing whitespace and then converted to
+        an integer.
+    Returns
+    -------
+    int
+        The integer representation of the input value.
+    Raises
+    ------
+    ValueError
+        If the value cannot be converted to an integer.
+    """
+
     if isinstance(value, int):
         return value
     else:
@@ -13,6 +29,25 @@ def convert_to_int(value):
 
 
 def convert_to_bool(value):
+    """
+    Convert a given value to a boolean.
+    Parameters
+    ----------
+    value : str or bool
+        The value to convert. If the value is already a boolean, it will be
+        returned as is. If the value is a string, it will be stripped of
+        leading and trailing whitespace and converted to lowercase
+        before comparison.
+    Returns
+    -------
+    bool
+        The converted boolean value.
+    Raises
+    ------
+    ValueError
+        If the value cannot be converted to a boolean.
+    """
+
     if isinstance(value, bool):
         return value
     else:
@@ -23,26 +58,3 @@ def convert_to_bool(value):
         return False
     else:
         raise ValueError(f"Invalid value: {value}")
-
-
-@dataclass
-class ZipCode:
-    zip: int
-    type: str
-    decommissioned: bool
-    primary_city: str
-    acceptable_cities: str
-    unacceptable_cities: str
-    county: str
-    timezone: str
-    area_codes: str
-    world_region: str
-    country: str
-    irs_estimated_population: int
-
-    def __post_init__(self):
-        self.zip = convert_to_int(self.zip)
-        self.decommissioned = convert_to_bool(self.decommissioned)
-        self.irs_estimated_population = convert_to_int(
-            self.irs_estimated_population
-        )
