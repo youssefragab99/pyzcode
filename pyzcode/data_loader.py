@@ -15,7 +15,7 @@ class DataLoader:
             from the CSV file.
         """
 
-        self.data = pd.read_csv("data/zip_code_database.csv").to_dict(
+        self.data = pd.read_csv("pyzcode/data/zip_code_database.csv").to_dict(
             orient="records"
         )
 
