@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyzcode"
-version = "0.6.0"
+version = "0.7.0"
 description = "Python package to manage zip codes"
 authors = ["Youssef Ragab <77282699+youssefragab99@users.noreply.github.com>"]
 license = "Apache 2.0"
@@ -46,3 +46,6 @@ include_trailing_comma = true
 [tool.pytest.ini_options]
 pythonpath = ["./pyzcode"]
 testpaths = ["tests"]
+
+[[tool.poetry.include]]
+path = "pyzipcode/data/*.csv"
